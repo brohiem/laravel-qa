@@ -12,7 +12,6 @@
                             <a href="{{ route('questions.create') }}" class="btn btn-outline-secondary">Ask Question</a>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="card-body">
@@ -36,6 +35,11 @@
                                     <h3 class="mt-0"><a href="{{ $question->url }}">{{ $question->title }}</a></h3>
                                     <div class="ml-auto">
                                         <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
+                                        <form action="{{ route('questions.destroy', $question->id) }}" method="post">
+                                            @csrf
+                                            @METHOD('DELETE')
+                                            <a href="{{ route('questions.destroy', $question->id) }}" class="btn btn-sm btn-outline-danger">Delete</a>
+                                        </form>
                                     </div>
                                 </div>
                                 <p class="lead">
