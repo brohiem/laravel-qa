@@ -66,15 +66,9 @@ class QuestionsController extends Controller
      */
     public function edit(Question $question)
     {
-<<<<<<< HEAD
         if(\Gate::denies('update-question', $question)) {
             abort(403, 'Access Denied');
         }
-=======
-        // if (\Gate::denies('update-question', $question)) {
-        //     abort(403, 'Access Denied');
-        // }
->>>>>>> lesson-12-b
 
         return view('questions.edit', compact('question'));
     }
@@ -103,7 +97,6 @@ class QuestionsController extends Controller
      */
     public function destroy(Question $question)
     {
-<<<<<<< HEAD
         if(\Gate::denies('delete-question', $question)) {
             abort(403, 'Access Denied');
         }
@@ -111,14 +104,5 @@ class QuestionsController extends Controller
         $question->delete();
 
         return redirect('/questions')->with('success', 'Your question has been deleted');
-=======
-        // if (\Gate::denies('delete-question', $question)) {
-        //     abort(403, 'Access Denied');
-        // }
-
-        $this->authorize('delete-question', $question);
-
-        $question->delete();
->>>>>>> lesson-12-b
     }
 }
